@@ -1,2 +1,2 @@
-# Advent-Of-Code
-Advent of Code challenges
+# Advent Of Code 🎄
+Advent of Code challenges & my solutions
