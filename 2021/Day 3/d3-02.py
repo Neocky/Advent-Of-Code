@@ -39,7 +39,7 @@ oxygen_generator_rating = []
 bit_array = []
 most_common = []
 
-with open(".\d3-01_input.txt", "r") as input_file:
+with open(".\d3_input.txt", "r") as input_file:
     raw_data = input_file.readlines()
     for line in raw_data:
         line = list(line)
@@ -52,16 +52,30 @@ with open(".\d3-01_input.txt", "r") as input_file:
                 character_sum[1][i] += 1
 
 
-for i in range(12):
+# Oxygen generator rating
+for i in range(len(character_sum[0])):
+    print(i)
     if int(character_sum[0][i]) > int(character_sum[1][i]):
+        print("ist 1")
         most_common.append(1)
         j = 0
         for line in bit_array:
-            if int(line[i]) == 0:
+            print(line)
+            if "0" in line[i]:
                 bit_array.pop(j)
+                print("wird gelöscht")
             j += 1
     elif int(character_sum[0][i]) < int(character_sum[1][i]):
+        print("ist 0")
         most_common.append(0)
+        j = 0
+        for line in bit_array:
+            if int(line[i]) == 1:
+                bit_array.pop(j)
+            j += 1
+    else:
+        print("ist gleich")
+        most_common.append(1)
         j = 0
         for line in bit_array:
             if int(line[i]) == 1:
